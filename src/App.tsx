@@ -1,23 +1,40 @@
-import React from 'react';
-import RouterMap from "./router/RouterMap";
-import './App.css';
+import React, { FC, useEffect } from "react";
+import RouterMap from "router/RouterMap";
+import "./App.css";
+import { testProductsInfo } from "testData/dataProducts";
+import { connect } from "react-redux";
+import { ProductActionType, ProductsProps } from "type";
+import Header from "pages/header/Header";
+import Footer from "pages/footer/Footer";
 
-interface AppProps {
-  
-}
+interface AppProps {}
 
-interface AppState{
+interface AppState {
   count: number;
 }
 
-class App extends React.Component<AppProps, AppState> {
-  render() {
-    return (
-      <div className="App">
-        <RouterMap />
-      </div>
-    );
-  }
-}
+const App: FC<AppProps> = () => {
+  useEffect(() => {
+    !localStorage.getItem("productsInfo") &&
+      localStorage.setItem("productsInfo", JSON.stringify(testProductsInfo));
+  }, []);
 
-export default App;
+  return (
+    <div className="App">
+      <Header />
+      <RouterMap />
+      <Footer />
+    </div>
+  );
+};
+
+const mapDispatchToProps = {
+  getProductsInfo: (listProducts: ProductsProps) => {
+    return {
+      type: ProductActionType.products,
+      listProducts,
+    };
+  },
+};
+
+export default connect(null, mapDispatchToProps)(App);
