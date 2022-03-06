@@ -1,0 +1,23 @@
+.banner-container {
+  .banner-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    line-height: 1.7;
+    font-size: 14px;
+    .banner-card {
+      width: 25%;
+    }
+    @media screen and(max-width: 1199px) {
+      .banner-card {
+        width: 50%;
+      }
+    }
+    @media screen and(max-width: 760px) {
+      .banner-card {
+        width: 100%;
+      }
+    }
+  }
+}

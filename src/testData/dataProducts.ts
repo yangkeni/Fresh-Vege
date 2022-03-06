@@ -1,182 +1,180 @@
-import { ProductEnum } from "./productType";
-export const testProductsInfo = 
-
-{
-    navPills:[
-        { tabName: ProductEnum.Fruit, showName: "水果"},
-        { tabName: ProductEnum.Seafood, showName: "海鲜"},
-        { tabName: ProductEnum.Nut, showName: "坚果"},
-        { tabName: ProductEnum.Vegetable, showName: "蔬菜"},
-        { tabName: ProductEnum.FreshMeat, showName: "新鲜食品"}
-    ],
-    tabPanes:[
-        {
-            "id":1,
-            "name":"美国水晶葡萄",
-            "price":235000,
-            "image":"./images/products/hoaqua/nho.webp",
-            type:ProductEnum.Fruit
-        },
-        {
-            "id":2,
-            "name":"泰国进口蜜瓜",
-            "price":90000,
-            "image":"./images/products/hoaqua/dua-luoi.webp",
-            type:ProductEnum.Fruit
-        },
-        {
-            "id":3,
-            "name":"莆仙妃子笑荔枝",
-            "price":40000,
-            "image":"./images/products/hoaqua/vai-thieu.webp",
-            type:ProductEnum.Fruit
-        },
-        {
-            "id":4,
-            "name":"澳洲水蜜桃",
-            "price":31000,
-            "image":"./images/products/hoaqua/dao.webp",
-            type:ProductEnum.Fruit
-        },
-        {
-            "id":5,
-            "name":"丹东奶油草莓",
-            "price":350000,
-            "image":"./images/products/hoaqua/dau-tay.webp",
-            type:ProductEnum.Fruit
-        },
-        {
-            "id":6,
-            "name":"王林青苹果",
-            "price":160000,
-            "image":"./images/products/hoaqua/tao.webp",
-            type:ProductEnum.Fruit
-        },
-        {
-            "id":7,
-            "name":"霓虹鳟鱼",
-            "price":600000,
-            "image":"./images/products/haisan/ca-hoi.webp",
-            type:ProductEnum.Seafood
-        },
-        {
-            "id":8,
-            "name":"想不出名虾",
-            "price":200000,
-            "image":"./images/products/haisan/tom-bien.webp",
-            type:ProductEnum.Seafood
-        },
-        {
-            "id":9,
-            "name":"海边小乌贼",
-            "price":70000,
-            "image":"./images/products/haisan/muc-thanh-hoa.webp",
-            type:ProductEnum.Seafood
-        },
-        {
-            "id":10,
-            "name":"普通的螃蟹",
-            "price":250000,
-            "image":"./images/products/haisan/cua-be.webp",
-            type:ProductEnum.Seafood
-        },
-        {
-            "id":11,
-            "name":"霓虹三文鱼",
-            "price":1200000,
-            "image":"./images/products/haisan/ca-hoi-ta.webp",
-            type:ProductEnum.Seafood
-        },
-        {
-            "id":12,
-            "name":"腰果",
-            "price":380000,
-            "image":"./images/products/cacloaihat/hat-dieu.webp",
-            type:ProductEnum.Nut
-        },
-        {
-            "id":13,
-            "name":"核桃",
-            "price":430000,
-            "image":"./images/products/cacloaihat/oc-cho.webp",
-            type:ProductEnum.Nut
-        },
-        {
-            "id":14,
-            "name":"开心果",
-            "price":280000,
-            "image":"./images/products/cacloaihat/hat-dieu-kho.webp",
-            type:ProductEnum.Nut
-        },
-        {
-            "id":15,
-            "name":"杏仁",
-            "price":320000,
-            "image":"./images/products/cacloaihat/hanh-nhan.webp",
-            type:ProductEnum.Nut
-        },
-        {
-            "id":16,
-            "name":"青柠檬",
-            "price":30000,
-            "image":"./images/products/raucu/chanh.webp",
-            type:ProductEnum.Vegetable
-        },
-        {
-            "id":18,
-            "name":"洋葱",
-            "price":55000,
-            "image":"./images/products/raucu/hanh-tay.webp",
-            type:ProductEnum.Vegetable
-        },
-        {
-            "id":19,
-            "name":"菜花",
-            "price":20000,
-            "image":"./images/products/raucu/sup-lo.webp",
-            type:ProductEnum.Vegetable
-        },
-        {
-            "id":20,
-            "name":"里脊肉",
-            "price":460000,
-            "image":"./images/products/tuoisong/thit-bo-than.webp",
-            type:ProductEnum.FreshMeat
-        },
-        {
-            "id":21,
-            "name":"进口加拿大牛肉",
-            "price":450000,
-            "image":"./images/products/tuoisong/thit-bo-canada.webp",
-            type:ProductEnum.FreshMeat
-        },
-        {
-            "id":22,
-            "name":"美国不好吃牛肉",
-            "price":365000,
-            "image":"./images/products/tuoisong/thit-bo-my.webp",
-            type:ProductEnum.FreshMeat
-        },
-        {
-            "id":23,
-            "name":"不知道啥肉",
-            "price":65000,
-            "image":"./images/products/tuoisong/thit-lon-lac-vai.webp",
-            type:ProductEnum.FreshMeat
-        },
-        {
-            "id":24,
-            "name":"巴西猪肋骨",
-            "price":200000,
-            "image":"./images/products/tuoisong/suon-lon-brazil.webp",
-            type:ProductEnum.FreshMeat
-        },
-        {
-            "id":25,
-            "name":"霓虹神户和牛",
-            "price":500000,
-            "image":"./images/products/tuoisong/ba-chi-bo-my.webp",
-            type:ProductEnum.FreshMeat
-        }
-    ]
-}
+import { ProductEnum } from "type";
+export const testProductsInfo = {
+  navPills: [
+    { tabName: ProductEnum.Fruit, showName: "水果" },
+    { tabName: ProductEnum.Seafood, showName: "海鲜" },
+    { tabName: ProductEnum.Nut, showName: "坚果" },
+    { tabName: ProductEnum.Vegetable, showName: "鲜蔬" },
+    { tabName: ProductEnum.FreshMeat, showName: "鲜肉" },
+  ],
+  tabPanes: [
+    {
+      id: 1,
+      name: "美国水晶葡萄",
+      price: 235000,
+      image: "./images/products/hoaqua/nho.webp",
+      type: ProductEnum.Fruit,
+    },
+    {
+      id: 2,
+      name: "泰国进口蜜瓜",
+      price: 90000,
+      image: "./images/products/hoaqua/dua-luoi.webp",
+      type: ProductEnum.Fruit,
+    },
+    {
+      id: 3,
+      name: "莆仙妃子笑荔枝",
+      price: 40000,
+      image: "./images/products/hoaqua/vai-thieu.webp",
+      type: ProductEnum.Fruit,
+    },
+    {
+      id: 4,
+      name: "澳洲水蜜桃",
+      price: 31000,
+      image: "./images/products/hoaqua/dao.webp",
+      type: ProductEnum.Fruit,
+    },
+    {
+      id: 5,
+      name: "丹东奶油草莓",
+      price: 350000,
+      image: "./images/products/hoaqua/dau-tay.webp",
+      type: ProductEnum.Fruit,
+    },
+    {
+      id: 6,
+      name: "王林青苹果",
+      price: 160000,
+      image: "./images/products/hoaqua/tao.webp",
+      type: ProductEnum.Fruit,
+    },
+    {
+      id: 7,
+      name: "霓虹鳟鱼",
+      price: 600000,
+      image: "./images/products/haisan/ca-hoi.webp",
+      type: ProductEnum.Seafood,
+    },
+    {
+      id: 8,
+      name: "想不出名虾",
+      price: 200000,
+      image: "./images/products/haisan/tom-bien.webp",
+      type: ProductEnum.Seafood,
+    },
+    {
+      id: 9,
+      name: "海边小乌贼",
+      price: 70000,
+      image: "./images/products/haisan/muc-thanh-hoa.webp",
+      type: ProductEnum.Seafood,
+    },
+    {
+      id: 10,
+      name: "普通的螃蟹",
+      price: 250000,
+      image: "./images/products/haisan/cua-be.webp",
+      type: ProductEnum.Seafood,
+    },
+    {
+      id: 11,
+      name: "霓虹三文鱼",
+      price: 1200000,
+      image: "./images/products/haisan/ca-hoi-ta.webp",
+      type: ProductEnum.Seafood,
+    },
+    {
+      id: 12,
+      name: "腰果",
+      price: 380000,
+      image: "./images/products/cacloaihat/hat-dieu.webp",
+      type: ProductEnum.Nut,
+    },
+    {
+      id: 13,
+      name: "核桃",
+      price: 430000,
+      image: "./images/products/cacloaihat/oc-cho.webp",
+      type: ProductEnum.Nut,
+    },
+    {
+      id: 14,
+      name: "开心果",
+      price: 280000,
+      image: "./images/products/cacloaihat/hat-dieu-kho.webp",
+      type: ProductEnum.Nut,
+    },
+    {
+      id: 15,
+      name: "杏仁",
+      price: 320000,
+      image: "./images/products/cacloaihat/hanh-nhan.webp",
+      type: ProductEnum.Nut,
+    },
+    {
+      id: 16,
+      name: "青柠檬",
+      price: 30000,
+      image: "./images/products/raucu/chanh.webp",
+      type: ProductEnum.Vegetable,
+    },
+    {
+      id: 18,
+      name: "洋葱",
+      price: 55000,
+      image: "./images/products/raucu/hanh-tay.webp",
+      type: ProductEnum.Vegetable,
+    },
+    {
+      id: 19,
+      name: "菜花",
+      price: 20000,
+      image: "./images/products/raucu/sup-lo.webp",
+      type: ProductEnum.Vegetable,
+    },
+    {
+      id: 20,
+      name: "里脊肉",
+      price: 460000,
+      image: "./images/products/tuoisong/thit-bo-than.webp",
+      type: ProductEnum.FreshMeat,
+    },
+    {
+      id: 21,
+      name: "进口加拿大牛肉",
+      price: 450000,
+      image: "./images/products/tuoisong/thit-bo-canada.webp",
+      type: ProductEnum.FreshMeat,
+    },
+    {
+      id: 22,
+      name: "美国不好吃牛肉",
+      price: 365000,
+      image: "./images/products/tuoisong/thit-bo-my.webp",
+      type: ProductEnum.FreshMeat,
+    },
+    {
+      id: 23,
+      name: "不知道啥肉",
+      price: 65000,
+      image: "./images/products/tuoisong/thit-lon-lac-vai.webp",
+      type: ProductEnum.FreshMeat,
+    },
+    {
+      id: 24,
+      name: "巴西猪肋骨",
+      price: 200000,
+      image: "./images/products/tuoisong/suon-lon-brazil.webp",
+      type: ProductEnum.FreshMeat,
+    },
+    {
+      id: 25,
+      name: "霓虹神户和牛",
+      price: 500000,
+      image: "./images/products/tuoisong/ba-chi-bo-my.webp",
+      type: ProductEnum.FreshMeat,
+    },
+  ],
+};

@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
-import Login from '../pages/login/Login';
-import Home from '../pages/home/Home';
-import NotFound from '../pages/notFound/NotFound';
+import Login from 'pages/login/Login';
+import Home from 'pages/home/Home';
+import NotFound from 'pages/notFound/NotFound';
 
-const id = false;
+const id = true;
 
 export default function RouterMap() {
   return (

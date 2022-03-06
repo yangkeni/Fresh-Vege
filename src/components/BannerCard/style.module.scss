@@ -1,0 +1,61 @@
+.banner-card {
+  position: relative;
+  background-size: 50% auto !important;
+  font-size: 14px;
+  min-width: 280px;
+  cursor: default;
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transition: all 0.5s ease;
+  }
+  &:hover::before {
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+  .banner-card-content {
+    width: 100%;
+    padding-bottom: 100%;
+    .banner-card-text-content {
+      letter-spacing: 0.5px;
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 60px;
+      width: 40%;
+      transform: translateY(-50%);
+      h3 {
+        color: #fff;
+        font-size: 24px;
+        margin-bottom: 10px;
+        float: left;
+        &:hover {
+          color: #91ad41;
+        }
+      }
+      p {
+        float: left;
+        margin-bottom: 30px;
+        text-align: left;
+      }
+      a {
+        float: left;
+        border-radius: 10px;
+        height: 45px;
+        line-height: 45px;
+        margin-bottom: 10px;
+        background: #27272f;
+        padding: 0 20px;
+        color: #fff;
+        margin-left: -5px;
+      }
+    }
+  }
+}
