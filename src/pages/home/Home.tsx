@@ -1,45 +1,30 @@
 import ProductCard from 'components/ProductCard/ProductCard';
 import ShoppingModal from 'components/ShoppingModal/ShoppingModal';
 import React, { FC, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { ProductInfo, ProductsProps } from 'type';
 import Banner from './banner/Banner';
+import { get } from "lodash";
 import './style.scss';
 
 const Home: FC<{}> = ({}) => {
   const [shoppingShow, setShoppingShow] = useState(false);
+  const [shoppingProductInfo, setShoppingProductInfo] = useState<ProductInfo>();
+  const listProducts = useSelector(state => get(state, 'listProductReducer.listProducts')) as ProductsProps;
   return (
     <div>
       <Banner />
       <div className="test">
-        <ProductCard
-          imgSrc="image/product-image/fruit/peach.webp"
-          name="水蜜桃"
-          price={55}
-          basePrice={1000}
-          setShoppingState={setShoppingShow}
-        />
-        <ProductCard
-          imgSrc="image/product-image/fruit/orange.webp"
-          name="橘子"
-          price={55}
-          basePrice={1000}
-          setShoppingState={setShoppingShow}
-        />
-        <ProductCard
-          imgSrc="image/product-image/fruit/strawberry.webp"
-          name="草莓"
-          price={55}
-          basePrice={1000}
-          setShoppingState={setShoppingShow}
-        />
-        <ProductCard
-          imgSrc="image/product-image/fruit/greenApple.webp"
-          name="青苹果"
-          price={55}
-          basePrice={1000}
-          setShoppingState={setShoppingShow}
-        />
+        {
+          listProducts.tabPanes?.map((val, index) => { return index < 4 && (<ProductCard
+            productInfo={val}
+            setShoppingProductInfo={setShoppingProductInfo}
+            setShoppingState={setShoppingShow}
+          />) })
+        }
+        
       </div>
-      <ShoppingModal showState={shoppingShow} setShowState={setShoppingShow} />
+      <ShoppingModal showState={shoppingShow} shoppingProductInfo={shoppingProductInfo} setShowState={setShoppingShow} />
     </div>
   );
 };

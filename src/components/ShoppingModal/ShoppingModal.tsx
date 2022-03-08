@@ -1,9 +1,11 @@
 import { Modal } from 'antd';
 import React, { FC } from 'react';
+import { ProductInfo } from 'type';
 import style from './style.module.scss';
 
 interface ShoppingModalProps {
   showState: boolean;
+  shoppingProductInfo?: ProductInfo;
   setShowState: (state: boolean) => void;
   wrapClassName?: string;
 }
@@ -13,6 +15,7 @@ const ShoppingModal: FC<ShoppingModalProps> = ({
   setShowState,
   wrapClassName,
 }) => {
+
   const handleOk = () => {
     setShowState(false);
   };
@@ -29,7 +32,7 @@ const ShoppingModal: FC<ShoppingModalProps> = ({
       wrapClassName={`${style['shopping-modal-wrapper']} ${
         wrapClassName ? wrapClassName : ''
       }`}
-      style={{ top: 20 }}
+      style={{ top: 100 }}
       footer={null}
     >
           <div className="shopping-modal-content">

@@ -2,27 +2,23 @@ import { Card } from 'antd';
 import React, { FC, MouseEvent } from 'react';
 import { ShoppingOutlined, ExpandOutlined } from '@ant-design/icons';
 import style from './style.module.scss';
+import { ProductInfo } from 'type';
 
 interface ProductCardProps {
-  imgSrc: string;
-  name: string;
-  price: number;
+  productInfo: ProductInfo;
+  setShoppingProductInfo: (info: ProductInfo) => void;
   setShoppingState: (state: boolean) => void;
-  basePrice?: number;
   className?: string;
 }
 
 const ProductCard: FC<ProductCardProps> = ({
-  imgSrc,
-  name,
-  price,
+  productInfo,
   setShoppingState,
-  basePrice,
   className,
 }) => {
   const { Meta } = Card;
 
-  const onShoppingClick = (e: MouseEvent<HTMLDivElement>) => {
+  const onShoppingClick = () => {
     setShoppingState(true);
   };
   const onExpandClick = (e: MouseEvent<HTMLDivElement>) => {
@@ -30,15 +26,15 @@ const ProductCard: FC<ProductCardProps> = ({
   };
   return (
     <div className={`${style['product-card']} ${className ? className : ''}`}>
-      <Card cover={<img src={imgSrc} alt={name} />} bordered size="small">
+      <Card cover={<img src={productInfo.image} alt={productInfo.name} />} bordered size="small">
         <Meta
-          title={name}
+          title={productInfo.name}
           description={
             <span className={style.price}>
-              ￥{price.toLocaleString()}
-              {basePrice && (
+              ￥{productInfo.price.toLocaleString()}
+              {productInfo.basePrice && (
                 <span className={style['base-price']}>
-                  ￥{basePrice.toLocaleString()}
+                  ￥{productInfo.basePrice.toLocaleString()}
                 </span>
               )}
             </span>
