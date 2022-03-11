@@ -13,7 +13,7 @@ const Header: FC<{}> = () => {
   return (
     <header className='header'>
       <div className="logo">
-        logo
+        <img src="image/logo-image/logo-transparent.png" alt="logo" />
       </div>
       <div className="func-zone">
         <Menu defaultSelectedKeys={['home']}	 mode="horizontal">

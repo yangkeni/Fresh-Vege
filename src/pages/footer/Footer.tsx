@@ -39,7 +39,7 @@ const Footer: FC<{}> = ({ }) => {
         </div>
       </div>
       <div className="footer-bottom">
-        <div className="footer-logo">logo</div>
+        <div className="footer-logo"><img src="image/logo-image/logo-transparent.png" alt="logo" /></div>
         <div className="info-container">
           <div className="info-contact-container">
             <h3>联系我们</h3>

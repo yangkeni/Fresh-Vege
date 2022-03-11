@@ -7,8 +7,8 @@ const Banner: FC<{}> = ({}) => {
   return (
     <div className="banner-container">
       <Carousel autoplay>
-        <Image src="image/slides/mongoBanner.jpg" />
-        <Image src="image/slides/meatBanner.jpg" />
+        <img src="image/slides/mongoBanner.jpg" alt='slide' />
+        <img src="image/slides/meatBanner.jpg" alt='slide' />
       </Carousel>
       <div className="banner-card-container">
         <BannerCard

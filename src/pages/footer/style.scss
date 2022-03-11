@@ -63,6 +63,11 @@
   max-width: 1140px;
   min-width: 940px;
   padding: 30px 0;
+  .footer-logo {
+    img {
+      width: 200px;
+    }
+  }
   .info-container {
     display: flex;
     justify-content: space-around;
