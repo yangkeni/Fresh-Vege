@@ -1,13 +1,16 @@
 import React, { FC, useState } from 'react';
 import ListCard from 'components/ListCard/ListCard';
 import { footInfo } from 'testData/footInfo';
-import './style.scss';
 import {
   EnvironmentTwoTone,
   MailTwoTone,
   PhoneTwoTone,
 } from '@ant-design/icons';
 import { Button, Input, message } from 'antd';
+import NormalButton from 'components/NormalButton/NormalButton';
+import './style.scss';
+
+
 
 const Footer: FC<{}> = ({ }) => {
   const [loading, setLoading] = useState(false);
@@ -30,9 +33,9 @@ const Footer: FC<{}> = ({ }) => {
               placeholder="输入你的电子邮箱"
               allowClear
               suffix={
-                <Button className="promotion-button" loading={loading} onClick={onButtonClick}>
-                  登记
-                </Button>
+                <NormalButton className="promotion-button" loading={loading} onClick={onButtonClick} >
+                登记
+                </NormalButton>
               }
             />
           </div>

@@ -1,0 +1,17 @@
+.normal-button {
+  cursor: pointer;
+  user-select: none;
+  height: 42px;
+  border-radius: 30px;
+  background-image: linear-gradient(35deg, #91ad41 0%, #ff8a6c 100%) !important;
+  background-color: #91ad41 !important;
+  color: white !important;
+  &:hover,
+  &:focus {
+    background: #91ad41 !important;
+    border: 1px solid transparent !important;
+  }
+  &:active {
+    box-shadow: inset 0 3px 5px rgb(0 0 0 / 13%);
+  }
+}

@@ -13,12 +13,14 @@ interface ProductCardProps {
 
 const ProductCard: FC<ProductCardProps> = ({
   productInfo,
+  setShoppingProductInfo,
   setShoppingState,
   className,
 }) => {
   const { Meta } = Card;
 
   const onShoppingClick = () => {
+    setShoppingProductInfo(productInfo);
     setShoppingState(true);
   };
   const onExpandClick = (e: MouseEvent<HTMLDivElement>) => {

@@ -32,24 +32,12 @@
       }
       .promotion-button {
         position: absolute;
-        cursor: pointer;
-        user-select: none;
-        width: 90px;
-        height: 42px;
         top: 0px;
         right: 0px;
         font-weight: bold;
+        width: 90px;
+        height: 42px;
         border-radius: 30px;
-        background-image: linear-gradient(35deg, #91ad41 0%, #ff8a6c 100%);
-        background-color: #91ad41;
-        color: white;
-        &:hover {
-          background: #91ad41 !important;
-          border-color: unset;
-        }
-        &:active {
-          box-shadow: inset 0 3px 5px rgb(0 0 0 / 13%);
-        }
       }
     }
   }
