@@ -1,21 +1,17 @@
 import React, { FC, useEffect } from 'react';
 import RouterMap from 'router/RouterMap';
-import './App.css';
 import { testProductsInfo } from 'testData/dataProducts';
-import { connect, useDispatch } from 'react-redux';
-import { ProductActionType, ProductsProps } from 'type';
+import { useDispatch } from 'react-redux';
+import { ProductActionType } from 'type';
 import Header from 'pages/header/Header';
 import Footer from 'pages/footer/Footer';
+import './App.css';
 
-interface AppProps {}
-
-interface AppState {
-  count: number;
-}
-
-const App: FC<{}> = ({}) => {
+const App: FC<{}> = () => {
   const dispatch = useDispatch();
   useEffect(() => {
+    // 初始化，将本地数据拉进来
+    // 商品信息初始化
     if (!localStorage.getItem('productsInfo')) {
       localStorage.setItem('productsInfo', JSON.stringify(testProductsInfo));
     }
@@ -23,10 +19,21 @@ const App: FC<{}> = ({}) => {
       localStorage.getItem('productsInfo') as string
     );
     dispatch({
-      type: ProductActionType.products,
+      type: ProductActionType.Products,
       listProducts,
     });
-  }, []);
+    // 购物车信息初始化
+    if (!localStorage.getItem('shoppingProducts')) {
+      localStorage.setItem('shoppingProducts', JSON.stringify([]));
+    }
+    const shoppingProducts = JSON.parse(
+      localStorage.getItem('shoppingProducts') as string
+    );
+    dispatch({
+      type: ProductActionType.GetShopping,
+      shoppingProducts,
+    });
+  }, [dispatch]);
   return (
     <div className="App">
       <Header />

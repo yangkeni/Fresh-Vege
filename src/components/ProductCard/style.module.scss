@@ -5,6 +5,7 @@
   :global {
     .ant-card-cover {
       position: relative;
+      min-height: 260px;
       border: 1px solid #f5f6fb;
       &::before {
         content: '';

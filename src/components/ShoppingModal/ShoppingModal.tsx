@@ -1,8 +1,9 @@
-import { InputNumber, Modal } from 'antd';
+import { Modal } from 'antd';
 import AmountInput from 'components/AmountInput/AmountInput';
 import NormalButton from 'components/NormalButton/NormalButton';
-import React, { FC, useCallback, useEffect, useRef, useState } from 'react';
-import { ProductEnum, ProductInfo } from 'type';
+import React, { FC, useCallback, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { ProductActionType, ProductEnum, ProductInfo } from 'type';
 import style from './style.module.scss';
 
 interface ShoppingModalProps {
@@ -19,12 +20,14 @@ const ShoppingModal: FC<ShoppingModalProps> = ({
     name: '美国水晶葡萄',
     price: 89.8,
     basePrice: 129.9,
-    image: 'image/product-image/fruit/grape.webp',
+    image: '/image/product-image/fruit/grape.webp',
     type: ProductEnum.Fruit,
   },
   setShowState,
   wrapClassName,
 }) => {
+  const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false)
   const [amountValue, setAmountValue] = useState(1); //TODO: 从数据里面取
   const { image, name, price, basePrice } = shoppingProductInfo;
   const inputRef = useCallback(
@@ -35,7 +38,17 @@ const ShoppingModal: FC<ShoppingModalProps> = ({
   );
 
   const handleOk = () => {
+    setLoading(true);
+    const shoppingProducts = {
+      ...shoppingProductInfo,
+      amount: amountValue,
+    }
+    dispatch({
+      type: ProductActionType.Shopping,
+      shoppingProducts,
+    })
     setAmountValue(1);
+    setLoading(false);
     setShowState(false);
   };
 
@@ -85,7 +98,7 @@ const ShoppingModal: FC<ShoppingModalProps> = ({
               总金额：<span>￥{(amountValue * price).toFixed(2)}</span>
             </span>
           </div>
-          <NormalButton className={style['shopping-button']} onClick={handleOk}>加入购物车</NormalButton>
+          <NormalButton loading={loading} className={style['shopping-button']}  onClick={handleOk}>加入购物车</NormalButton>
         </div>
       </div>
     </Modal>

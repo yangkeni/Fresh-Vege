@@ -1,11 +1,8 @@
 import { Menu } from 'antd';
 import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
-import { Link, NavLink } from 'react-router-dom';
-import SearchButton from './searchButton/SearchButton';
-import "./style.scss";
 import UserInfo from './userInfo/UserInfo';
 import { ProductEnum } from "type";
+import "./style.scss";
 
 const Header: FC<{}> = () => {
   const { Item, SubMenu } = Menu;
@@ -13,14 +10,14 @@ const Header: FC<{}> = () => {
   return (
     <header className='header'>
       <div className="logo">
-        <img src="image/logo-image/logo-transparent.png" alt="logo" />
+        <img src="/image/logo-image/logo-transparent.png" alt="logo" />
       </div>
       <div className="func-zone">
         <Menu defaultSelectedKeys={['home']}	 mode="horizontal">
           <Item key={'home'}>
             主页
           </Item>
-          <SubMenu title="市场">
+          <SubMenu key={ProductEnum.All} title="市场">
             <Item key={ProductEnum.Fruit}>水果</Item>
             <Item key={ProductEnum.Seafood}>海鲜</Item>
             <Item key={ProductEnum.Nut}>坚果</Item>
@@ -37,7 +34,6 @@ const Header: FC<{}> = () => {
             加入我们
           </Item>
         </Menu>
-        <SearchButton />
       </div>
       <UserInfo />
     </header>

@@ -1,31 +1,34 @@
-import ProductCard from 'components/ProductCard/ProductCard';
-import ShoppingModal from 'components/ShoppingModal/ShoppingModal';
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { ProductInfo, ProductsProps } from 'type';
-import Banner from './banner/Banner';
+import { ProductEnum, ProductsProps } from 'type';
 import { get } from "lodash";
+import Banner from './banner/Banner';
+import ListProducts from 'components/ListProducts/ListProducts';
 import './style.scss';
+import CapsuleSelect from 'components/CapsuleSelect/CapsuleSelect';
+import SectionDivider from './sectionDivider/SectionDivider';
 
-const Home: FC<{}> = ({}) => {
-  const [shoppingShow, setShoppingShow] = useState(false);
-  const [shoppingProductInfo, setShoppingProductInfo] = useState<ProductInfo>();
-  const listProducts = useSelector(state => get(state, 'listProductReducer.listProducts')) as ProductsProps;
+interface HomeProps {
+  listProductsData?: ProductsProps;
+}
+
+const Home: FC<HomeProps> = ({
+  listProductsData
+}) => {
+  const [productType, setProductType] = useState(ProductEnum.Fruit);
+  const listProducts = useSelector(state => get(state, 'listProductReducer.listProducts', listProductsData)) as ProductsProps;
+
+  const onTitleClick = () => {
+
+  }
+
   return (
-    <div>
+    <>
       <Banner />
-      <div className="test">
-        {
-          listProducts.tabPanes?.map((val, index) => { return index < 4 && (<ProductCard
-            productInfo={val}
-            setShoppingProductInfo={setShoppingProductInfo}
-            setShoppingState={setShoppingShow}
-          />) })
-        }
-        
-      </div>
-      <ShoppingModal showState={shoppingShow} shoppingProductInfo={shoppingProductInfo} setShowState={setShoppingShow} />
-    </div>
+      <SectionDivider title='市场总览' onClick={onTitleClick} />
+      <CapsuleSelect selectData={listProducts.navPills} productType={productType} setProductType={setProductType} />
+      <ListProducts productType={productType} listProductsInfo={get(listProducts, 'tabPanes')}/>
+    </>
   );
 };
 

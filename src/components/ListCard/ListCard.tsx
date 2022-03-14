@@ -14,9 +14,9 @@ const ListCard: FC<ListCardProps> = ({ title, listContent }) => {
     <div className={style['list-card-container']}>
       <h3>{title}</h3>
       <ul className={style['list-content-container']}>
-        {listContent.map((value) => {
+        {listContent.map((value, index) => {
           return (
-            <li>
+            <li key={index}>
               <a href={value?.to}>{value.name}</a>
             </li>
           );

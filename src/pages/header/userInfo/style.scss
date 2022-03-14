@@ -1,13 +1,13 @@
 .user-info {
-    height: 32px;
-    line-height: 32px;
-    span {
-        height: 32px;
-        line-height: 32px;
-        margin-left: 20px;
-        svg {
-            width: 26px;
-            height: 26px;
-        }
-    }
+  //   height: 32px;
+  //   line-height: 32px;
+  .ant-avatar-icon {
+    top: -5px;
+    background-color: rgb(145, 173, 65);
+    margin-right: 15px;
+  }
+  .anticon-shopping svg {
+    width: 26px;
+    height: 26px;
+  }
 }

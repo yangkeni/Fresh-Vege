@@ -6,7 +6,7 @@ const initialState = {
 
 const listProductReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ProductActionType.products:
+    case ProductActionType.Products:
       state.listProducts = action.listProducts;
       return { ...state };
     default:

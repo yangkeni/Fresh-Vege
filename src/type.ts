@@ -1,4 +1,5 @@
 export enum ProductEnum {
+  All = 'all',
   Fruit = 'fruit',
   Seafood = 'seafood',
   Nut = 'nut',
@@ -24,5 +25,7 @@ export type ProductsProps = {
 };
 
 export enum ProductActionType {
-  products = 'GET_PRODUCTS',
+  Products = 'GET_PRODUCTS', // 获取本地化的商品信息
+  Shopping = 'GO_SHOPPING', // 购物操作带来的数据变化信息
+  GetShopping = 'GET_SHOPPING' // 获取本地化的购物信息
 }

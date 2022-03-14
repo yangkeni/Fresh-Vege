@@ -22,14 +22,14 @@ export default class Login extends Component {
                       <img
                         style={{ width: 129, height: 37 }}
                         alt="facebook-login-button"
-                        src="images/btn/fb-btn.svg"
+                        src="/images/btn/fb-btn.svg"
                       />
                     </a>
                     <a href="/" className="social-login--google m-1">
                       <img
                         style={{ width: 129, height: 37 }}
                         alt="facebook-login-button"
-                        src="images/btn/gp-btn.svg"
+                        src="/images/btn/gp-btn.svg"
                       />
                     </a>
                   </div>

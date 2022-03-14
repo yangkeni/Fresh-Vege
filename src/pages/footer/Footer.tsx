@@ -6,13 +6,11 @@ import {
   MailTwoTone,
   PhoneTwoTone,
 } from '@ant-design/icons';
-import { Button, Input, message } from 'antd';
+import { Input, message } from 'antd';
 import NormalButton from 'components/NormalButton/NormalButton';
 import './style.scss';
 
-
-
-const Footer: FC<{}> = ({ }) => {
+const Footer: FC<{}> = () => {
   const [loading, setLoading] = useState(false);
   const onButtonClick = () => {
     setLoading(true);
@@ -42,7 +40,7 @@ const Footer: FC<{}> = ({ }) => {
         </div>
       </div>
       <div className="footer-bottom">
-        <div className="footer-logo"><img src="image/logo-image/logo-transparent.png" alt="logo" /></div>
+        <div className="footer-logo"><img src="/image/logo-image/logo-transparent.png" alt="logo" /></div>
         <div className="info-container">
           <div className="info-contact-container">
             <h3>联系我们</h3>
@@ -63,8 +61,8 @@ const Footer: FC<{}> = ({ }) => {
               </li>
             </ul>
           </div>
-          {footInfo.data.map(val => {
-            return <ListCard title={val.title} listContent={val.listContent} />;
+          {footInfo.data.map((val, index) => {
+            return <ListCard key={index} title={val.title} listContent={val.listContent} />;
           })}
         </div>
       </div>
