@@ -1,8 +1,10 @@
 import { Card } from 'antd';
-import React, { FC, MouseEvent } from 'react';
+import React, { FC } from 'react';
 import { ShoppingOutlined, ExpandOutlined } from '@ant-design/icons';
 import style from './style.module.scss';
 import { ProductInfo } from 'type';
+import { useNavigate,
+  useLocation } from "react-router-dom";
 
 interface ProductCardProps {
   productInfo: ProductInfo;
@@ -18,13 +20,14 @@ const ProductCard: FC<ProductCardProps> = ({
   className,
 }) => {
   const { Meta } = Card;
+  const navigate = useNavigate();
 
   const onShoppingClick = () => {
     setShoppingProductInfo(productInfo);
     setShoppingState(true);
   };
-  const onExpandClick = (e: MouseEvent<HTMLDivElement>) => {
-    console.log(e.target);
+  const onExpandClick = () => {
+    navigate(`/products/${productInfo.id}`);
   };
   return (
     <div className={`${style['product-card']} ${className ? className : ''}`}>

@@ -1,5 +1,6 @@
 import { Breadcrumb } from 'antd';
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 import style from './style.module.scss';
 
 interface BreadCrumbProps {
@@ -15,8 +16,9 @@ const NormalBreadcrumb: FC<BreadCrumbProps> = ({ category, productName }) => {
       </h2>
       <div className={style['breadcrumb-content']}>
         <Breadcrumb separator=">">
-          <Breadcrumb.Item>主页</Breadcrumb.Item>
-          <Breadcrumb.Item href="">{category}</Breadcrumb.Item>
+          <Breadcrumb.Item ><Link to={'/home'} >主页</Link></Breadcrumb.Item>
+          {/* TODO: 标签改为有效地址 */}
+          <Breadcrumb.Item ><Link to={'/home'} >{category}</Link></Breadcrumb.Item>
           {productName && <Breadcrumb.Item>{productName}</Breadcrumb.Item>}
         </Breadcrumb>
       </div>
