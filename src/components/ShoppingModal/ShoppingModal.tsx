@@ -1,4 +1,4 @@
-import { Modal } from 'antd';
+import { message, Modal } from 'antd';
 import AmountInput from 'components/AmountInput/AmountInput';
 import NormalButton from 'components/NormalButton/NormalButton';
 import React, { FC, useCallback, useState } from 'react';
@@ -37,8 +37,14 @@ const ShoppingModal: FC<ShoppingModalProps> = ({
     [showState]
   );
 
-  const handleOk = () => {
+  const handleOk = (e: any) => {
     setLoading(true);
+    e.target.blur();
+    const timer = setTimeout(() => {
+      setLoading(false);
+      message.success('加入成功');
+      clearTimeout(timer);
+    }, 1000);
     const shoppingProducts = {
       ...shoppingProductInfo,
       amount: amountValue,
@@ -49,7 +55,6 @@ const ShoppingModal: FC<ShoppingModalProps> = ({
     })
     setAmountValue(1);
     setLoading(false);
-    setShowState(false);
   };
 
   const handleCancel = () => {

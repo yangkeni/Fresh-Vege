@@ -5,7 +5,7 @@ import style from './style.module.scss';
 interface NormalButtonProps {
   content?: string;
   loading?: boolean;
-  onClick?: () => void;
+  onClick?: (e?: any) => void;
   className?: string;
 }
 

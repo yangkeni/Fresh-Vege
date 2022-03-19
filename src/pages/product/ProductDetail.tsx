@@ -1,14 +1,14 @@
 import AmountInput from 'components/AmountInput/AmountInput';
 import NormalBreadcrumb from 'components/NormalBreadcrumb/NormalBreadcrumb';
 import NormalButton from 'components/NormalButton/NormalButton';
-import { find, get } from 'lodash';
-import React, { FC, useEffect, useState } from 'react';
+import { find, findIndex, get, pullAt } from 'lodash';
+import React, { FC, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { ProductActionType, ProductInfo, ProductsProps } from 'type';
+import { ProductActionType, ProductInfo } from 'type';
 import Drift from 'drift-zoom';
 import './style.scss';
-import { Avatar, List, Popover } from 'antd';
+import { Dropdown, Menu, message, Tooltip } from 'antd';
 
 interface ProductDetailProps {
   // productId: string
@@ -19,8 +19,36 @@ const ProductDetail: FC<ProductDetailProps> = (
     // productId
   }
 ) => {
+  // 假数据
+  const dataTest = [
+    {
+      id: '1',
+      description: '电子科技大学财富又一城负一层家乐福超市',
+    },
+    {
+      id: '2',
+      description: '四川大学财富又一城负一层家乐福超市',
+    },
+    {
+      id: '3',
+      description: '中国人民大学财富又一城负一层家乐福超市',
+    },
+    {
+      id: '4',
+      description: '沙河大学财富又一城负一层家乐福超市',
+    },
+  ];
+
+  const [merchantAddress, setMerchantAddress] = useState(
+    dataTest.shift()! // 假定他一定存在，接口过来得改
+  );
+
+  const [listData, setListData] = useState(dataTest); //接口过来得改，准备接接口了
+
   const [amountValue, setAmountValue] = useState(1);
-  const [merchantAddress, setMerchantAddress] = useState('电子科技大学财富又一城负一层家乐福超市')
+
+  const [loading, setLoading] = useState(false);
+
   const dispatch = useDispatch();
   const { id } = useParams();
   const listProducts = useSelector(state =>
@@ -42,7 +70,15 @@ const ProductDetail: FC<ProductDetailProps> = (
     );
   }, []);
 
-  const handleOk = () => {
+  // 加入购物车操作
+  const handleOk = (e: any) => {
+    setLoading(true);
+    e.target.blur();
+    const timer = setTimeout(() => {
+      setLoading(false);
+      message.success('加入成功');
+      clearTimeout(timer);
+    }, 1000);
     const shoppingProducts = {
       ...productDetail,
       amount: amountValue,
@@ -54,39 +90,20 @@ const ProductDetail: FC<ProductDetailProps> = (
     setAmountValue(1);
   };
 
-  // 假数据
-  const data = [
-    {
-      id: '1',
-      description: '电子科技大学财富又一城负一层家乐福超市',
-    },
-    {
-      id: '2',
-      description: '电子科技大学财富又一城负一层家乐福超市',
-    },
-    {
-      id: '3',
-      description: '电子科技大学财富又一城负一层家乐福超市',
-    },
-  ];
-
-  const onListMerchantClick = (e: any) => {
-    console.log(e.target)
-  }
-
-  const merchantContent = (
-    <List
-      dataSource={data}
-      renderItem={item => (
-        <List.Item 
-        actions={[<span id={item.id} onClick={onListMerchantClick} >选择</span>]}>
-          <List.Item.Meta
-            avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-            description={item.description}
-          />
-        </List.Item>
-      )}
-    />
+  const handleListMerchantClick = (e: any) => {
+    console.log(e);
+    const targetIndex = findIndex(listData, { id: e.key });
+    const resultData = [...listData, merchantAddress];
+    setMerchantAddress(listData[targetIndex]);
+    pullAt(resultData, targetIndex);
+    setListData(resultData);
+  };
+  const ListMerchant = useMemo(
+    () =>
+      listData.map(val => {
+        return <Menu.Item key={val.id}>{val.description}</Menu.Item>;
+      }),
+    [listData]
   );
 
   return (
@@ -105,15 +122,30 @@ const ProductDetail: FC<ProductDetailProps> = (
           <div className="product-detail-content">
             <h3 className="product-detail-name">{productDetail?.name}</h3>
             <div className="product-detail-merchant">
-              {merchantAddress}
-              <Popover content={merchantContent} placement="top" overlayClassName='product-detail-popover' >
-                <span>更换商场</span>
-              </Popover>
+              <Tooltip
+                overlayStyle={{ maxWidth: 'unset' }}
+                title={merchantAddress.description}
+                placement="bottom"
+              >
+                <span className="product-detail-merchant-address">
+                  {merchantAddress.description}
+                </span>
+              </Tooltip>
+              <Dropdown
+                placement="bottom"
+                arrow
+                overlayClassName="product-detail-merchant-overlay"
+                overlay={
+                  <Menu onClick={handleListMerchantClick}>{ListMerchant}</Menu>
+                }
+              >
+                <span className="product-detail-merchant-change">更换商场</span>
+              </Dropdown>
             </div>
-            <span className={'product-detail-info-price'}>
+            <span className="product-detail-info-price">
               ￥{productDetail?.price.toLocaleString()}
               {productDetail?.basePrice && (
-                <span className={'product-detail-info-base-price'}>
+                <span className="product-detail-info-base-price">
                   ￥{productDetail.basePrice.toLocaleString()}
                 </span>
               )}
@@ -130,7 +162,7 @@ const ProductDetail: FC<ProductDetailProps> = (
                 <span>￥{(amountValue * productDetail?.price).toFixed(2)}</span>
               </span>
             </div>
-            <NormalButton className={'shopping-button'} onClick={handleOk}>
+            <NormalButton className={'shopping-button'} loading={loading} onClick={handleOk}>
               加入购物车
             </NormalButton>
           </div>
