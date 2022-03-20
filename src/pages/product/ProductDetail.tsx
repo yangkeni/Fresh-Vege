@@ -5,7 +5,7 @@ import { find, findIndex, get, pullAt } from 'lodash';
 import React, { FC, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { ProductActionType, ProductInfo } from 'type';
+import { ProductActionType, ProductEnum, ProductInfo, ProductsProps } from 'type';
 import Drift from 'drift-zoom';
 import './style.scss';
 import { Dropdown, Menu, message, Tooltip } from 'antd';
@@ -52,13 +52,15 @@ const ProductDetail: FC<ProductDetailProps> = (
   const dispatch = useDispatch();
   const { id } = useParams();
   const listProducts = useSelector(state =>
-    get(state, 'listProductReducer.listProducts.tabPanes', {})
-  ) as ProductInfo[];
+    get(state, 'listProductReducer.listProducts', {})
+  ) as ProductsProps;
+  const { navPills, tabPanes: listProductsInfo } = listProducts;
   // TODO: 直接打接口查了md，这尼玛要的数据太多了，先做个假数据吧
   const productDetail = find(
-    listProducts,
+    listProductsInfo,
     o => o.id === Number(id)
   ) as ProductInfo;
+  const category = find(navPills, { tabName: productDetail?.type })?.showName;
   useEffect(() => {
     new Drift(
       document.querySelector('.product-detail-image-trigger') as HTMLElement,
@@ -91,7 +93,6 @@ const ProductDetail: FC<ProductDetailProps> = (
   };
 
   const handleListMerchantClick = (e: any) => {
-    console.log(e);
     const targetIndex = findIndex(listData, { id: e.key });
     const resultData = [...listData, merchantAddress];
     setMerchantAddress(listData[targetIndex]);
@@ -106,9 +107,10 @@ const ProductDetail: FC<ProductDetailProps> = (
     [listData]
   );
 
+  // TODO:把这个水果去掉
   return (
     <>
-      <NormalBreadcrumb category="水果" productName={productDetail?.name} />
+      <NormalBreadcrumb categoryName={category || '水果'} categoryAddress={productDetail?.type} productName={productDetail?.name} />
       <div className="product-detail-wrapper">
         <section className="product-detail-container">
           <div className="product-detail-image">

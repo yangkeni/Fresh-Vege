@@ -6,6 +6,7 @@ import { ProductActionType } from 'type';
 import Header from 'pages/header/Header';
 import Footer from 'pages/footer/Footer';
 import './App.css';
+import { BrowserRouter } from 'react-router-dom';
 
 const App: FC<{}> = () => {
   const dispatch = useDispatch();
@@ -36,9 +37,11 @@ const App: FC<{}> = () => {
   }, [dispatch]);
   return (
     <div className="App">
-      <Header />
-      <RouterMap />
-      <Footer />
+      <BrowserRouter>
+        <Header />
+        <RouterMap />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 };

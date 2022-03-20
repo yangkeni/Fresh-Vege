@@ -42,6 +42,7 @@ const ShoppingModal: FC<ShoppingModalProps> = ({
     e.target.blur();
     const timer = setTimeout(() => {
       setLoading(false);
+      setShowState(false);
       message.success('加入成功');
       clearTimeout(timer);
     }, 1000);
@@ -54,7 +55,6 @@ const ShoppingModal: FC<ShoppingModalProps> = ({
       shoppingProducts,
     })
     setAmountValue(1);
-    setLoading(false);
   };
 
   const handleCancel = () => {

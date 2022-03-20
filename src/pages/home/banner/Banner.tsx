@@ -19,6 +19,7 @@ const Banner: FC<{}> = () => {
             color: '#59cca6',
           }}
           className='banner-card'
+          to='/merchant/vegetable'
         />
         <BannerCard
           title='坚果'
@@ -28,6 +29,7 @@ const Banner: FC<{}> = () => {
             color: '#91ad41',
           }}
           className='banner-card'
+          to='/merchant/nut'
         />
         <BannerCard
           title='生鲜'
@@ -37,6 +39,7 @@ const Banner: FC<{}> = () => {
             color: '#e3b375',
           }}
           className='banner-card'
+          to='/merchant/seafood'
         />
         <BannerCard
           title='水果'
@@ -46,6 +49,7 @@ const Banner: FC<{}> = () => {
             color: '#ef7f94',
           }}
           className='banner-card'
+          to='/merchant/fruit'
         />
       </div>
     </div>

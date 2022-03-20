@@ -1,6 +1,7 @@
 import { ProductEnum, ProductsProps } from 'type';
 export const testProductsInfo: ProductsProps = {
   navPills: [
+    { tabName: ProductEnum.All, showName: '总览' },
     { tabName: ProductEnum.Fruit, showName: '水果' },
     { tabName: ProductEnum.Seafood, showName: '海鲜' },
     { tabName: ProductEnum.Nut, showName: '坚果' },

@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { Link } from 'react-router-dom';
 import style from './style.module.scss';
 
 interface BannerCardProps {
@@ -30,7 +31,7 @@ const BannerCard: FC<BannerCardProps> = ({
         <div className={style['banner-card-text-content']}>
           <h3>{title}</h3>
           <p>{desc}</p>
-          <a href={to}>look now</a>
+          <Link to={to}>look now</Link> 
         </div>
       </div>
     </div>
