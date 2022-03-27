@@ -5,6 +5,7 @@ import Home from 'pages/home/Home';
 import NotFound from 'pages/notFound/NotFound';
 import ProductDetail from 'pages/product/ProductDetail';
 import MerchantRouter from 'pages/merchantRouter/MerchantRouter';
+import Register from 'pages/register/Register';
 
 const userLogin = true;
 
@@ -17,6 +18,7 @@ export default function RouterMap() {
       />
       <Route path="/home" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
       <Route path="/merchant/:type" element={<MerchantRouter />} />
       <Route exact path="/products/:id" element={<ProductDetail />} />
       <Route path="/*" element={<NotFound />} />

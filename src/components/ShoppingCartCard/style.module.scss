@@ -1,0 +1,53 @@
+.shopping-product-info-card {
+  display: flex;
+  min-width: 280px;
+  width: 280px;
+  padding-right: 10px;
+  justify-content: space-between;
+  border-bottom: solid 1px #ebebeb;
+  padding-top: 15px;
+  .shopping-product-image {
+    width: 90px;
+    img {
+      max-width: 100%;
+    }
+  }
+  .shopping-product-detail {
+    .detail-title {
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      line-height: 24px;
+      a {
+        color: rgba(0, 0, 0, 0.85);
+      }
+    }
+    .detail-price {
+      display: block;
+      color: #91ad41;
+      font-size: 15px;
+      font-weight: bold;
+      line-height: 24px;
+      margin-bottom: 10px;
+      span {
+        margin-left: 5px;
+        color: rgba(0, 0, 0, 0.45);
+        font-size: 13px;
+      }
+    }
+    .detail-input-amount {
+      margin-bottom: 15px;
+      :global {
+        .ant-input-number-input {
+          height: 25px;
+        }
+      }
+    }
+  }
+  .product-delete-icon {
+    color: #8c8c8c;
+    &:hover {
+      color: #91ad41;
+    }
+  }
+}

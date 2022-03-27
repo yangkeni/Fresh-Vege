@@ -5,8 +5,9 @@ import { useDispatch } from 'react-redux';
 import { ProductActionType } from 'type';
 import Header from 'pages/header/Header';
 import Footer from 'pages/footer/Footer';
-import './App.css';
 import { BrowserRouter } from 'react-router-dom';
+import ScrollToTop from "scrollToTop";
+import './App.css';
 
 const App: FC<{}> = () => {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ const App: FC<{}> = () => {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
         <Header />
         <RouterMap />
         <Footer />

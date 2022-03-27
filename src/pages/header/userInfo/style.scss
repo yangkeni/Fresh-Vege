@@ -1,13 +1,83 @@
 .user-info {
-  //   height: 32px;
-  //   line-height: 32px;
   .ant-avatar-icon {
     top: -5px;
     background-color: rgb(145, 173, 65);
     margin-right: 15px;
+    cursor: pointer;
   }
   .anticon-shopping svg {
     width: 26px;
     height: 26px;
+    cursor: pointer;
+  }
+}
+
+.user-info-tooltip {
+  .ant-popover-inner-content {
+    padding: 5px 16px 12px;
+  }
+  .ant-popover-arrow {
+    display: none;
+  }
+  .ant-popover-inner {
+    border: solid 1px #91ad41;
+    border-radius: 10px;
+    .ant-popover-inner-content {
+      display: flex;
+      flex-direction: column;
+      button {
+        margin-top: 5px;
+        width: 200px;
+        height: 35px;
+        border-radius: 23px;
+      }
+    }
+  }
+}
+
+.shopping-products-basket-info {
+  .ant-popover-inner-content {
+    padding: 5px 16px 12px;
+  }
+  .ant-popover-arrow {
+    display: none;
+  }
+  .ant-popover-inner {
+    border: solid 1px #91ad41;
+    border-radius: 10px;
+  }
+  .shopping-products-basket-info-content {
+    max-height: 330px;
+    overflow: auto;
+    &::-webkit-scrollbar {
+      width: 4px;
+      background-color: #f1f1f1;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #91ad41;
+    }
+  }
+  .shopping-products-basket-info-bottom {
+    border-top: 1px solid #ebebeb;
+    padding-top: 15px;
+    .shopping-products-basket-total-price {
+      display: flex;
+      justify-content: space-between;
+      padding: 0px 20px 10px;
+      user-select: none;
+      line-height: 40px;
+      color: #707070;
+      font-size: 14px;
+      span {
+        margin-left: 10px;
+        font-size: 21px;
+        color: #91ad41;
+      }
+    }
+    .shopping-products-basket-shopping-button {
+      width: 100%;
+      height: 45px;
+      border-radius: 23px;
+    }
   }
 }

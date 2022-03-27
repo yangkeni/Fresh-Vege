@@ -22,14 +22,14 @@ const AmountInput: FC<AmountInputProps> = ({
 }) => {
   const onMinusClick = () => {
     if (min && value - 1 < min) {
-      return;
+      return min;
     }
     setValue(value - 1);
   };
 
   const onPlusClick = () => {
     if (max && value + 1 > max) {
-      return;
+      return max;
     }
     setValue(value + 1);
   };

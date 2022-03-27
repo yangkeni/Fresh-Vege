@@ -1,0 +1,40 @@
+.register-container {
+  max-width: 1140px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .register-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-family: '幼圆';
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  .register-form {
+    min-width: 440px;
+    .register-input-form {
+      .register-input {
+        height: 40px;
+        border-radius: 10px;
+      }
+      .ant-form-item-explain {
+        text-align: left;
+        font-size: 12px;
+        margin-top: 5px;
+        margin-left: 5px;
+      }
+    }
+    .register-button {
+      margin-top: 15px;
+      width: 100%;
+      border-radius: 10px;
+      height: 40px;
+    }
+    .go-register {
+      display: block;
+      margin-top: 10px;
+      text-align: right;
+    }
+  }
+}

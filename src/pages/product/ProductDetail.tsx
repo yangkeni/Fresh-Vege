@@ -5,20 +5,20 @@ import { find, findIndex, get, pullAt } from 'lodash';
 import React, { FC, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { ProductActionType, ProductEnum, ProductInfo, ProductsProps } from 'type';
+import {
+  ProductActionType,
+  ProductInfo,
+  ProductsProps,
+} from 'type';
 import Drift from 'drift-zoom';
-import './style.scss';
 import { Dropdown, Menu, message, Tooltip } from 'antd';
+import './style.scss';
 
 interface ProductDetailProps {
   // productId: string
 }
 
-const ProductDetail: FC<ProductDetailProps> = (
-  {
-    // productId
-  }
-) => {
+const ProductDetail: FC<ProductDetailProps> = () => {
   // 假数据
   const dataTest = [
     {
@@ -99,6 +99,7 @@ const ProductDetail: FC<ProductDetailProps> = (
     pullAt(resultData, targetIndex);
     setListData(resultData);
   };
+
   const ListMerchant = useMemo(
     () =>
       listData.map(val => {
@@ -110,7 +111,11 @@ const ProductDetail: FC<ProductDetailProps> = (
   // TODO:把这个水果去掉
   return (
     <>
-      <NormalBreadcrumb categoryName={category || '水果'} categoryAddress={productDetail?.type} productName={productDetail?.name} />
+      <NormalBreadcrumb
+        categoryName={category || '水果'}
+        categoryAddress={productDetail?.type}
+        productName={productDetail?.name}
+      />
       <div className="product-detail-wrapper">
         <section className="product-detail-container">
           <div className="product-detail-image">
@@ -164,7 +169,11 @@ const ProductDetail: FC<ProductDetailProps> = (
                 <span>￥{(amountValue * productDetail?.price).toFixed(2)}</span>
               </span>
             </div>
-            <NormalButton className={'shopping-button'} loading={loading} onClick={handleOk}>
+            <NormalButton
+              className={'shopping-button'}
+              loading={loading}
+              onClick={handleOk}
+            >
               加入购物车
             </NormalButton>
           </div>
