@@ -1,0 +1,79 @@
+.checkout-card-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #ebebeb;
+  padding: 30px;
+  border-radius: 20px;
+  transition: all 0.5s ease;
+  &:hover {
+    border-color: transparent;
+    box-shadow: 0 1px 2px -2px rgb(0 0 0 / 16%), 0 3px 6px 0 rgb(0 0 0 / 12%),
+      0 5px 12px 4px rgb(0 0 0 / 9%);
+    transform: scale(1.05);
+  }
+  .checkout-card-content-left {
+    display: flex;
+    img {
+      width: 100px;
+    }
+    .info {
+      margin-left: 40px;
+      user-select: none;
+      text-align: left;
+      font-size: 16px;
+      line-height: 27px;
+      .info-name {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 10px;
+        letter-spacing: 1px;
+        a {
+          color: rgba(0, 0, 0, 0.85);
+          &:hover {
+            color: #91ad41;
+          }
+        }
+      }
+      .info-price {
+        font-weight: bold;
+        display: block;
+        color: #91ad41;
+      }
+    }
+  }
+  .checkout-card-content-right {
+    width: 40%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .checkout-card-wrapper-input {
+      input {
+        user-select: none;
+        width: 90px;
+      }
+    }
+    .total-price {
+      user-select: none;
+      line-height: 40px;
+      color: #707070;
+      font-size: 14px;
+      span {
+        margin-left: 10px;
+        font-size: 18px;
+        color: #91ad41;
+      }
+    }
+
+    .checkout-card-delete-icon {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      color: #8c8c8c;
+      &:hover {
+        color: #91ad41;
+      }
+    }
+  }
+}

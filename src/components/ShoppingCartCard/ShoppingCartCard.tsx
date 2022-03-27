@@ -45,7 +45,7 @@ const ShoppingCartCard: FC<ShoppingCartCardProps> = ({ product }) => {
           <Link to={`/products/${product.id}`}>{product.name}</Link>
         </h3>
         <span className={style['detail-price']} >
-          ￥{product.price} <span>x {product.amount}</span>
+          ￥{product.price.toLocaleString()} <span>x {product.amount}</span>
         </span>
         <AmountInput
           value={amountValue}

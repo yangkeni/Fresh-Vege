@@ -45,11 +45,10 @@ const UserInfo: FC<{}> = () => {
 
   const handleCheckButton = (e: any) => {
     setLoading(true);
-    console.log(e.target)
     e.target.blur();
     const timer = setTimeout(() => {
       setLoading(false);
-      navigate('/home', { replace: true });
+      navigate('/checkout', { replace: true });
       clearTimeout(timer);
     }, 500);
   };

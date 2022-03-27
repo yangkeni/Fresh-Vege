@@ -1,0 +1,29 @@
+.checkout-list {
+  width: 1170px;
+  min-height: 325px;
+  margin: 50px auto;
+  display: grid;
+  row-gap: 20px;
+}
+.checkout-list-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  .checkout-list-total-price {
+    padding: 0px 20px 10px;
+    user-select: none;
+    line-height: 40px;
+    color: #707070;
+    font-size: 14px;
+    span {
+      margin-left: 10px;
+      font-size: 21px;
+      color: #91ad41;
+    }
+  }
+  .checkout-list-checkout-button {
+    width: 250px;
+    height: 45px;
+    border-radius: 23px;
+  }
+}

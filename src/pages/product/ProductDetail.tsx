@@ -19,6 +19,8 @@ interface ProductDetailProps {
 }
 
 const ProductDetail: FC<ProductDetailProps> = () => {
+  // TODO: 商场页面完善，用户可以选择不同的商场，不同的商场水果将不同
+
   // 假数据
   const dataTest = [
     {
