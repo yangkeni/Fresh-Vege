@@ -8,7 +8,7 @@ interface AmountInputProps {
   setValue: (val: number) => void;
   min?: number;
   max?: number;
-  inputRef?: (node: any) => void;
+  inputRef?: (node: any) => void; // 获得input的ref，用于在特殊情况下设置focus
   wrapClassName?: string;
 }
 
@@ -34,6 +34,19 @@ const AmountInput: FC<AmountInputProps> = ({
     setValue(value + 1);
   };
 
+  const keyboardInput = (inputValue: number) => {
+    if (!inputValue) {
+      return;
+    }
+    if (min && inputValue < min) {
+      setValue(min);
+    } else if (max && inputValue > max) {
+      setValue(max);
+    } else {
+      setValue(inputValue);
+    }
+  };
+
   return (
     <div
       className={`${style['input-wrapper']} ${
@@ -46,6 +59,7 @@ const AmountInput: FC<AmountInputProps> = ({
         value={value}
         controls={false}
         className={style['number-input-box']}
+        onChange={keyboardInput}
       />
       <PlusCircleOutlined onClick={onPlusClick} />
     </div>

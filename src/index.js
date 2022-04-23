@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from "./redux/reducer/rootReducer";
+// import "setupProxy";
 
 const store = createStore(rootReducer);
 

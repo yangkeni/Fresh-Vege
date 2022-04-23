@@ -1,5 +1,5 @@
 import { ProductActionType } from 'type';
-import { findIndex, pull, remove } from 'lodash';
+import { findIndex, remove } from 'lodash';
 
 const initialState = {
   shoppingProducts: [],
